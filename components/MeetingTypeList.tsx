@@ -12,6 +12,8 @@ import { Textarea } from "./ui/textarea";
 import ReactDatePicker, { registerLocale } from "react-datepicker";
 import { sk } from "date-fns/locale/sk";
 import { Input } from "./ui/input";
+import { HoverEffect } from "./ui/card-hover-effect";
+import { Features } from "@/constats";
 registerLocale("sk", sk);
 
 const initialValues = {
@@ -86,7 +88,7 @@ const MeetingTypeList = () => {
         title="Vytvoriť meeting"
         desc="Zdieľajte myšlienku medzi ostatnými"
         img="/icons/add-meeting.svg"
-        className="bg-orange-1"
+        className="bg-gradient-to-r from-zinc-900 to-gray-800"
         handleClick={() => setMeetingState("isInstantMeeting")}
       />
       <HomeCard
@@ -110,6 +112,7 @@ const MeetingTypeList = () => {
         className="bg-green-500"
         handleClick={() => router.push("/recordings")}
       />
+
       {!callDetails ? (
         <MeetingModal
           isOpen={meetingState === "isScheduleMeeting"}
@@ -126,7 +129,7 @@ const MeetingTypeList = () => {
               Pridajte popis
             </label>
             <Textarea
-              className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
+              className="border-none bg-zinc-800 focus-visible:ring-0 focus-visible:ring-offset-0"
               onChange={(e) => {
                 setValues({ ...values, description: e.target.value });
               }}
@@ -148,7 +151,7 @@ const MeetingTypeList = () => {
               timeIntervals={15}
               timeCaption="čas"
               dateFormat={"MMMM d, yyyy h:mm aa"}
-              className="w-full rounded bg-dark-3 p-2 focus:outline-none"
+              className="w-full rounded bg-zinc-800 p-2 focus:outline-none"
             />
           </div>
         </MeetingModal>
@@ -184,7 +187,7 @@ const MeetingTypeList = () => {
         <Input
           placeholder="Meeting link"
           onChange={(e) => setValues({ ...values, link: e.target.value })}
-          className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
+          className="border-none bg-zinc-800 focus-visible:ring-0 focus-visible:ring-offset-0"
         />
       </MeetingModal>
       <MeetingModal

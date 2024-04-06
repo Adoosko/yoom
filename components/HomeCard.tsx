@@ -3,6 +3,9 @@
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
+import { HoverEffect } from "./ui/card-hover-effect";
+import { features } from "process";
+import { Features } from "@/constats";
 
 interface HomeCardProps {
   className?: string;
@@ -22,7 +25,7 @@ const HomeCard = ({
   return (
     <section
       className={cn(
-        "bg-orange-1 px-4 py-6 flex flex-col justify-between w-full xl:max-w-[270px] min-h-[260px] rounded-[14px] cursor-pointer",
+        " px-4 py-6 flex flex-col justify-between w-full xl:max-w-[390px] min-h-[260px] rounded-[14px] cursor-pointer hover:-translate-y-2 transition-all duration-300 shadow-2xl border border-transparent ",
         className
       )}
       onClick={handleClick}
